@@ -1,0 +1,125 @@
+<div class="nav">
+  <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+  [mode]="(isHandset$ | async) ? 'over' : 'side'"
+  [opened]="(!isHandset$ | async) === false">
+<mat-toolbar>Menu</mat-toolbar>
+<mat-nav-list style="color:black;">
+  <a mat-list-item href="#">Link 1</a>
+  <a mat-list-item href="#">Link 2</a>
+  <a mat-list-item href="#">Link 3</a>
+</mat-nav-list>
+</mat-sidenav>
+  <mat-sidenav-content>
+  <mat-toolbar role="heading" class="topbar" >
+    <button
+    type="button"
+    aria-label="Toggle sidenav"
+    mat-icon-button
+    (click)="drawer.toggle()"
+    *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+
+    <mat-toolbar-row >
+      <mat-icon>wb_auto</mat-icon>
+      <h1 style="padding-left: 20px;">AfriApparel</h1> <hr>
+
+      <span class="menu-spacer"></span>
+
+      <div>
+        <form class="form-inline search">
+          <div class="md-form">
+            <input type="text" class="form-control mr-2" placeholder="Search">
+          </div>
+        </form>
+      </div>
+
+      <div class="top1" style="float: inline-end;">
+        <a mat-button [routerLink]="'#'">
+          <mat-icon>shopping_cart</mat-icon>
+          Cart
+        </a>
+        <a mat-button [routerLink]="'/login'">
+          <mat-icon>account_box</mat-icon>
+          User
+        </a>
+        <a mat-button [routerLink]="'/'">
+          <mat-icon>home</mat-icon>
+          Home
+        </a>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-toolbar class="secondbar" role="heading" style="background-color: white;">
+    <mat-toolbar-row>
+      <div class="menus">
+        <button mat-button [matMenuTriggerFor]="categories" style="color: black;">All Categories <mat-icon>arrow_drop_down</mat-icon></button>
+
+        <mat-menu #categories="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="male">Male</button>
+          <button mat-menu-item [matMenuTriggerFor]="female">Female</button>
+        </mat-menu>
+
+        <mat-menu #male="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+          <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+          <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+          <button mat-menu-item>Birds</button>
+          <button mat-menu-item>Mammals</button>
+        </mat-menu>
+
+        <mat-menu #female="matMenu">
+          <button mat-menu-item>Insects</button>
+          <button mat-menu-item>Molluscs</button>
+          <button mat-menu-item>Crustaceans</button>
+          <button mat-menu-item>Corals</button>
+          <button mat-menu-item>Arachnids</button>
+          <button mat-menu-item>Velvet worms</button>
+          <button mat-menu-item>Horseshoe crabs</button>
+        </mat-menu>
+
+        <mat-menu #fish="matMenu">
+          <button mat-menu-item>Baikal oilfish</button>
+          <button mat-menu-item>Bala shark</button>
+          <button mat-menu-item>Ballan wrasse</button>
+          <button mat-menu-item>Bamboo shark</button>
+          <button mat-menu-item>Banded killifish</button>
+
+      </mat-menu>
+
+
+        <mat-menu #amphibians="matMenu">
+          <button mat-menu-item>Sonoran desert toad</button>
+          <button mat-menu-item>Western toad</button>
+          <button mat-menu-item>Arroyo toad</button>
+          <button mat-menu-item>Yosemite toad</button>
+        </mat-menu>
+
+        <mat-menu #reptiles="matMenu">
+          <button mat-menu-item>Banded Day Gecko</button>
+          <button mat-menu-item>Banded Gila Monster</button>
+          <button mat-menu-item>Black Tree Monitor</button>
+          <button mat-menu-item>Blue Spiny Lizard</button>
+          <button mat-menu-item disabled>Velociraptor</button>
+        </mat-menu>
+
+
+          <button mat-button [routerLink]="'/link'" class="btn-a">Female</button>
+          <button mat-button [routerLink]="'/foot'" class="btn-b">Male</button>
+          <button mat-button [routerLink]="'/prod'" class="btn-c">Children</button>
+          <button mat-button [routerLink]="'/upload'" class="btn-d">Unisex</button>
+          <button mat-button [routerLink]="'/link'" class="btn-e">Promos</button>
+
+          <button mat-button [routerLink]="'/link'" class="btn-f" style="color: white;">Sell With Us</button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+

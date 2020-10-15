@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  background: #e2e2e2;
+}
+
+.nav{
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-bottom: 100px;
+}
+.mat-toolbar.topbar{
+  background-color: maroon;
+  color: white;
+  padding: 0 100px 0 20px ;
+
+}
+.mat-list-item{
+  color:#fff;
+}
+
+.mat-button{
+  border-radius: 20px;
+  color: white;
+}
+.top1{
+overflow: hidden;
+
+}
+.topbar.top1 a{
+  float: right;
+  text-decoration: none;
+  text-align: center;
+  padding: 15px;
+  font-size: 17px;
+  text-underline-offset: none;
+}
+.topbar a{
+  text-decoration: none;
+}
+
+.top1 a:hover{
+  background-color: #fff;
+  color: maroon;
+  border-radius: 120px;
+}
+.top1 a.active{
+  background-color: black;
+  color: wheat;
+}
+.secondbar{
+  box-shadow: 2px 2px 2px 2px rgb(218, 211, 211);
+}
+.secondbar a{
+  color: black;
+  text-decoration: none;
+  float: center;
+}
+.menus button{
+  color: black;
+}
+.menus button:hover{
+  background-color: maroon;
+  color: white;
+}
+.search{
+  position: relative;
+  right: 20%;
+  border: 2px red;
+}
+.btn-f{
+  background-color: black;
+  border-radius: 0;
+  line-height: 60px;
+  box-sizing: border-box;
+  position: relative;
+  left: 200px;
+}
+nmat-menu button:hover{
+  background-color: maroon;
+  color: white;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
