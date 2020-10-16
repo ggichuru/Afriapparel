@@ -16,10 +16,12 @@ import {MatCardModule} from '@angular/material/card';
 import { APP_CONFIG } from './AppConfig';
 import { IAppConfig } from './IAppConfig';
 import { environment } from '../../environments/environment';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 const AppConfig: IAppConfig = {
   apiEndpoint: environment.apiEndPoint
-}
+};
 
 @NgModule({
   declarations: [],
@@ -37,7 +39,8 @@ const AppConfig: IAppConfig = {
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig},
@@ -56,7 +59,8 @@ const AppConfig: IAppConfig = {
     MatListModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialSharedModule { }

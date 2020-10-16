@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomCommonModule } from './common/common.module';
 import { MaterialSharedModule } from './material-shared/material-shared.module';
+import { UserModule } from './user/user.module';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -21,7 +23,9 @@ import { MaterialSharedModule } from './material-shared/material-shared.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     CustomCommonModule,
-    MaterialSharedModule
+    MaterialSharedModule,
+    UserModule,
+    AdminModule
 
   ],
   providers: [],

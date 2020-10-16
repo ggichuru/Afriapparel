@@ -4,6 +4,7 @@ import { IUser } from './user';
 import { environment } from '../../../environments/environment';
 import { APP_CONFIG } from '../../material-shared/AppConfig';
 import { IAppConfig } from '../../material-shared/IAppConfig';
+import { IResponse } from './loginResponse';
 
 
 @Injectable({
@@ -20,6 +21,6 @@ export class LoginService {
 
   // tslint:disable-next-line: typedef
   login(user: IUser) {
-    return this.http.post(this.appConfig.apiEndpoint + '/user/login/', user);
+    return this.http.post<IResponse>(this.appConfig.apiEndpoint + '/user/login/', user);
   }
 }
