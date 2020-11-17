@@ -7,12 +7,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { MaterialSharedModule } from '../material-shared/material-shared.module';
 import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     MainNavComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

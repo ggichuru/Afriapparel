@@ -12,7 +12,10 @@
 </mat-nav-list>
 </mat-sidenav>
   <mat-sidenav-content>
-  <mat-toolbar role="heading" class="topbar" >
+  <mat-toolbar
+    role="heading"
+    class="topbar"
+    >
     <button
     type="button"
     aria-label="Toggle sidenav"
@@ -22,7 +25,7 @@
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
 
-    <mat-toolbar-row >
+    <mat-toolbar-row>
       <mat-icon>wb_auto</mat-icon>
       <h1 style="padding-left: 20px;">AfriApparel</h1> <hr>
 
@@ -118,7 +121,9 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-  <router-outlet></router-outlet>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </mat-sidenav-content>
 </mat-sidenav-container>
 </div>

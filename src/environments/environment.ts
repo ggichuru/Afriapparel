@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiEndPoint: 'http://localhost:3000',
+  apiEndPoint: 'https://ggapiecom.herokuapp.com',
   production: false
 };
 

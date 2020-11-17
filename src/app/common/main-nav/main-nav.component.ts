@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { CategoryService } from '../service/category.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -15,10 +17,21 @@ export class MainNavComponent implements OnInit {
     shareReplay()
   );
 
-constructor(private breakpointObserver: BreakpointObserver) {}
+  loginStatus: Observable<boolean>;
+  role: Observable<string>;
+
+constructor(
+  private breakpointObserver: BreakpointObserver,
+  private categoryService: CategoryService,
+  private loginService: LoginService
+  ) {}
 
 
   ngOnInit(): void {
+  }
+
+  private getCategories() {
+    
   }
 
 }

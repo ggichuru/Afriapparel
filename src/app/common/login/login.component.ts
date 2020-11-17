@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  hide = true;
   user: IUser = {
     email: '',
     password: '',
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line: typedef
   navigate(role: string) {
     switch (role) {
-      case 'User':
+      case 'user':
         // redirect to UserDashboard
         this.router.navigate(['/user/dashboard']);
         break;
