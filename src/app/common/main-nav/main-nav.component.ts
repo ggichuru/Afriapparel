@@ -19,6 +19,7 @@ export class MainNavComponent implements OnInit {
 
   loginStatus: Observable<boolean>;
   role: Observable<string>;
+  categories: any;
 
 constructor(
   private breakpointObserver: BreakpointObserver,
@@ -28,10 +29,14 @@ constructor(
 
 
   ngOnInit(): void {
+    this.getCategories();
   }
 
+  // tslint:disable-next-line: typedef
   private getCategories() {
-    
+    this.categoryService.getCategories().subscribe((result) => {
+      this.categories = result.data;
+    });
   }
 
 }

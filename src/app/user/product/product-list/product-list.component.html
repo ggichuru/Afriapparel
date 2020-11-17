@@ -1,0 +1,18 @@
+<h1>Category: {{categoryName}}</h1>
+<div>
+  Product {{productList?.length}} of {{productCount}}
+</div>
+<mat-divider></mat-divider>
+
+<mat-card *ngFor="let product of productList; let i=index" class="prodCard">
+  <mat-card-header>
+    <mat-card-title class="text-center">
+      {{product.productName}}
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName">
+  <div class="text-center">
+    {{product.price | currency : 'KSH '}}
+  </div>
+</mat-card>
+

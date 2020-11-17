@@ -121,8 +121,10 @@
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="con">
+      <router-outlet>
+        <ng-content></ng-content>
+      </router-outlet>
   </div>
 </mat-sidenav-content>
 </mat-sidenav-container>

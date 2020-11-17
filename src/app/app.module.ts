@@ -8,6 +8,7 @@ import { CustomCommonModule } from './common/common.module';
 import { MaterialSharedModule } from './material-shared/material-shared.module';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
+import { ProductModule } from './user/product/product.module';
 
 
 
@@ -25,7 +26,8 @@ import { AdminModule } from './admin/admin.module';
     CustomCommonModule,
     MaterialSharedModule,
     UserModule,
-    AdminModule
+    AdminModule,
+    ProductModule
 
   ],
   providers: [],

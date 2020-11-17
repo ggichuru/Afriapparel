@@ -17,6 +17,9 @@ import { APP_CONFIG } from './AppConfig';
 import { IAppConfig } from './IAppConfig';
 import { environment } from '../../environments/environment';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 
 const AppConfig: IAppConfig = {
@@ -41,6 +44,9 @@ const AppConfig: IAppConfig = {
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatSelectModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig},
@@ -60,7 +66,10 @@ const AppConfig: IAppConfig = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDividerModule,
+    MatGridListModule,
+    MatSelectModule
   ]
 })
 export class MaterialSharedModule { }
