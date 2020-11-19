@@ -1,19 +1,22 @@
-<!-- <h1>
+<h1>
   {{productDetails?.productName}}
 </h1>
+<ng-template [ngIf]="isHandset$ | async" [ngIfElse]="notHandest" >
 <mat-divider></mat-divider>
-<mat-grid-list cols="4">
+<br>
+<mat-grid-list cols="3">
   <mat-grid-tile
-   colspan="1" rowspan="2">
+   colspan="2" rowspan="3">
     <img class="fitWidth" mat-card-image [src]="productDetails?.imageUrl">
   </mat-grid-tile>
-  <mat-grid-tile colspan="3" rowspan="1">
+  <br>
+  <mat-grid-tile colspan="3" rowspan="3">
     <mat-grid-tile-header> Description </mat-grid-tile-header>
-    <div>{{ productDetails?.description}}</div>
+    <div style="background: none;">{{ productDetails?.description}}</div>
   </mat-grid-tile>
-  <mat-grid-tile colspan="1" rowspan="1">
+  <mat-grid-tile colspan="1" rowspan="2">
     <mat-grid-tile-header> Quantity </mat-grid-tile-header>
-    <div>
+    <div style="background: none;">
       <mat-select class="matSelect" required [formControl]="quantity" placeholder="Quantity" name="qty">
         <mat-option *ngFor="let qty of [1,2,3,4,5,6,7,8,9,10]" [value]="qty"></mat-option>
         {{quantity}}
@@ -21,7 +24,7 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="2" rowspan="1">
+  <mat-grid-tile colspan="2" rowspan="2">
     <mat-grid-tile-header>
       Price
     </mat-grid-tile-header>
@@ -30,8 +33,48 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="2" rowspan="1">
+  <mat-grid-tile colspan="3" rowspan="1" style="background: none;" class="btns">
     <button mat-raised-button color="primary" >Add To Cart</button>
     <button mat-raised-button color="primary" >Add To WishList</button>
   </mat-grid-tile>
-</mat-grid-list> -->
+</mat-grid-list>
+</ng-template>
+
+
+<ng-template #notHandest>
+  <mat-divider></mat-divider>
+  <br>
+  <mat-grid-list cols="5">
+    <mat-grid-tile
+     colspan="2" rowspan="3">
+      <img class="fitWidth" mat-card-image [src]="productDetails?.imageUrl">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" rowspan="1">
+      <mat-grid-tile-header> Description </mat-grid-tile-header>
+      <div style="background: none;">{{ productDetails?.description}}</div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-grid-tile-header> Quantity </mat-grid-tile-header>
+      <div style="background: none;">
+        <mat-select class="matSelect" required [formControl]="quantity" placeholder="Quantity" name="qty">
+          <mat-option *ngFor="let qty of [1,2,3,4,5,6,7,8,9,10]" [value]="qty"></mat-option>
+          {{quantity}}
+        </mat-select>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1">
+      <mat-grid-tile-header>
+        Price
+      </mat-grid-tile-header>
+      <div>
+        {{productDetails?.price | currency: 'KSH'}}
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="1" style="background: none;" class="btns">
+      <button mat-raised-button color="primary" >Add To Cart</button>
+      <button mat-raised-button color="primary" >Add To WishList</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  </ng-template>

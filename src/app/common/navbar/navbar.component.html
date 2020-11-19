@@ -1,30 +1,31 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)">
+    >
     <mat-toolbar>{{(role$ | async )|| 'Menu' }}</mat-toolbar>
-    <ng-container *ngIf="(role$ | async ) === 'Admin'">
+    <ng-container *ngIf="(role$ | async ) === 'admin'">
       <ng-container *ngTemplateOutlet="adminMenu"></ng-container>
     </ng-container>
-    <ng-container *ngIf="(role$ | async ) === 'User'">
+    <ng-container *ngIf="(role$ | async ) === 'user'">
       <ng-container *ngTemplateOutlet="userMenu"></ng-container>
     </ng-container>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <mat-toolbar-row>
         <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span class="titleWidth">EcomPortal</span>
-        <div>
-            <button *ngIf="(role$ | async ) === 'User'" type="button" mat-icon-button routerLink="/user/cart">
-              <mat-icon [matBadge]="(cart$ | async)?.data?.length" >shopping_cart</mat-icon>
-            </button>
-            <button *ngIf="(role$ | async ) === 'User'" type="button" mat-icon-button routerLink="/user/wishlist">
-              <mat-icon>bookmark</mat-icon>
-            </button>
+        <span class="menu-spacer"></span>
+        <span class="titleWidth text-center" >ADORE AFRIAPPAREL</span>
+        <div class="top1" style="float: inline-end;">
+          <button style="left: 100%; float: right;" type="button" mat-icon-button routerLink="/user/cart">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+          <button style="left: 100%; float: right; right: -20px;" type="button" mat-icon-button routerLink="/user/wishlist">
+            <mat-icon>bookmark</mat-icon>
+          </button>
           <button *ngIf="loginStatus$ | async" mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>account_circle</mat-icon>
           </button>
@@ -35,7 +36,76 @@
         </div>
       </mat-toolbar-row>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+
+    <mat-toolbar *ngIf="!(isHandset$ | async)" class="secondbar" role="heading" style="background-color: white; top: 1; position: sticky;">
+      <mat-toolbar-row>
+        <div class="menus">
+          <button mat-button [matMenuTriggerFor]="categories" style="color: black;">All Categories <mat-icon>arrow_drop_down</mat-icon></button>
+
+          <mat-menu #categories="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="male">Male</button>
+            <button mat-menu-item [matMenuTriggerFor]="female">Female</button>
+          </mat-menu>
+
+          <mat-menu #male="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+            <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+            <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+            <button mat-menu-item>Birds</button>
+            <button mat-menu-item>Mammals</button>
+          </mat-menu>
+
+          <mat-menu #female="matMenu">
+            <button mat-menu-item>Insects</button>
+            <button mat-menu-item>Molluscs</button>
+            <button mat-menu-item>Crustaceans</button>
+            <button mat-menu-item>Corals</button>
+            <button mat-menu-item>Arachnids</button>
+            <button mat-menu-item>Velvet worms</button>
+            <button mat-menu-item>Horseshoe crabs</button>
+          </mat-menu>
+
+          <mat-menu #fish="matMenu">
+            <button mat-menu-item>Baikal oilfish</button>
+            <button mat-menu-item>Bala shark</button>
+            <button mat-menu-item>Ballan wrasse</button>
+            <button mat-menu-item>Bamboo shark</button>
+            <button mat-menu-item>Banded killifish</button>
+
+        </mat-menu>
+
+
+          <mat-menu #amphibians="matMenu">
+            <button mat-menu-item>Sonoran desert toad</button>
+            <button mat-menu-item>Western toad</button>
+            <button mat-menu-item>Arroyo toad</button>
+            <button mat-menu-item>Yosemite toad</button>
+          </mat-menu>
+
+          <mat-menu #reptiles="matMenu">
+            <button mat-menu-item>Banded Day Gecko</button>
+            <button mat-menu-item>Banded Gila Monster</button>
+            <button mat-menu-item>Black Tree Monitor</button>
+            <button mat-menu-item>Blue Spiny Lizard</button>
+            <button mat-menu-item disabled>Velociraptor</button>
+          </mat-menu>
+
+
+            <button mat-button [routerLink]="'/link'" class="btn-a">Female</button>
+            <button mat-button [routerLink]="'/foot'" class="btn-b">Male</button>
+            <button mat-button [routerLink]="'/prod'" class="btn-c">Children</button>
+            <button mat-button [routerLink]="'/upload'" class="btn-d">Unisex</button>
+            <button mat-button [routerLink]="'/link'" class="btn-e">Promos</button>
+
+            <button mat-button [routerLink]="'/link'" class="btn-f" style="color: white;">Sell With Us</button>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
 
