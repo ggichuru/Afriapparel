@@ -37,7 +37,7 @@
       </mat-toolbar-row>
     </mat-toolbar>
 
-    <mat-toolbar *ngIf="!(isHandset$ | async)" class="secondbar" role="heading" style="background-color: white; top: 1; position: sticky;">
+    <!-- <mat-toolbar *ngIf="!(isHandset$ | async)" class="secondbar" role="heading" style="background-color: white; top: 1; position: sticky;">
       <mat-toolbar-row>
         <div class="menus">
           <button mat-button [matMenuTriggerFor]="categories" style="color: black;">All Categories <mat-icon>arrow_drop_down</mat-icon></button>
@@ -100,7 +100,7 @@
             <button mat-button [routerLink]="'/link'" class="btn-f" style="color: white;">Sell With Us</button>
         </div>
       </mat-toolbar-row>
-    </mat-toolbar>
+    </mat-toolbar> -->
 
     <div class="content">
       <router-outlet></router-outlet>
@@ -110,10 +110,10 @@
 </mat-sidenav-container>
 
 
-<ng-template #userMenu>
+<ng-template #userMenu style="color: aliceblue;">
   <mat-nav-list>
     <mat-list-item>
-      <a mat-list-item routerLink='/user/product'>All</a>
+      <a mat-list-item routerLink='/product'>All</a>
     </mat-list-item>
     <mat-divider></mat-divider>
     <mat-list-item *ngFor="let category of categories">

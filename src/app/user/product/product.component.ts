@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
           this.productCount = result.count;
         });
       } else {
-        this.category = '';
+        this.category = 'All';
         this.productService.getAllProducts().subscribe((result) => {
           this.products = result.data;
           this.productCount = result.data.length;

@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
 
 
 const AppConfig: IAppConfig = {
@@ -46,7 +47,8 @@ const AppConfig: IAppConfig = {
     MatSnackBarModule,
     MatDividerModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig},
@@ -69,7 +71,8 @@ const AppConfig: IAppConfig = {
     MatSnackBarModule,
     MatDividerModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ]
 })
 export class MaterialSharedModule { }

@@ -3,6 +3,7 @@ import { LoginService } from '../service/login.service';
 import { IUser } from '../service/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { EncDecService } from '@ecom/core';
 
 
 @Component({
@@ -17,10 +18,12 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+
   constructor(
     private loginService: LoginService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private encdecservice: EncDecService
   ) { }
 
   ngOnInit(): void {
@@ -28,11 +31,16 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   login() {
-    this.loginService.login(this.user).subscribe((data) => {
-      if (data.status === 'success') {
-        this.navigate(data.role);
+    this.loginService.login(this.user).subscribe((response) => {
+      if (response.status === 'success') {
+        const role = this.encdecservice.encrypt(response.role, '');
+        sessionStorage.setItem('role', role);
+        sessionStorage.setItem('token', response.data);
+        this.loginService.isLoggedIn(true);
+        this.loginService.userRole(response.role);
+        this.navigate(response.role);
       } else {
-        this.snackBar.open(data.message, 'login', {
+        this.snackBar.open(response.message, 'login', {
           duration: 1000
         });
       }

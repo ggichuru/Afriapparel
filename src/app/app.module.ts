@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomCommonModule } from './common/common.module';
+import { CustomInterceptorService } from './common/custom-interceptor/custom-interceptor.service';
 import { MaterialSharedModule } from './material-shared/material-shared.module';
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { ProductModule } from './user/product/product.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -27,10 +30,13 @@ import { ProductModule } from './user/product/product.module';
     MaterialSharedModule,
     UserModule,
     AdminModule,
-    ProductModule
+    ProductModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [
+    // { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from './service/dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  orderData: any;
+  orders: any;
+  displayColumns: string[] = ['_id', 'orderID', 'total', 'createdOn', 'status', 'actions'];
+
+  constructor(
+    private dashboardService: DashboardService
+  ) { }
 
   ngOnInit(): void {
+    this.dashboardService.getDashboard().subscribe((result) => {
+      this.orderData = result.data;
+      this.orders = result.data.orders;
+    });
   }
 
+  // tslint:disable : typedef
+  trackByFn(index: number, item: any) {
+    return item._id;
+  }
 }

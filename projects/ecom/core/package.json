@@ -1,0 +1,15 @@
+{
+  "name": "@ecom/core",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^10.1.5",
+    "@angular/core": "^10.1.5"
+  },
+  "dependencies": {
+    "crypto-js": "^4.0.0",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.0.1"
+  }
+}
