@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { ProductModule } from './user/product/product.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ErrorHandlerService } from './common/error-handler/error-handler.service';
 
 
 
@@ -35,7 +36,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CustomInterceptorService, multi: true },
+    { provide: ErrorHandler, useClass: ErrorHandlerService}
   ],
   bootstrap: [AppComponent]
 })
