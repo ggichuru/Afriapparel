@@ -21,6 +21,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatGridListModule, MatGridTile} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 
 const AppConfig: IAppConfig = {
@@ -48,7 +52,10 @@ const AppConfig: IAppConfig = {
     MatDividerModule,
     MatGridListModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    FlexLayoutModule,
+    MatBadgeModule,
   ],
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig},
@@ -72,7 +79,10 @@ const AppConfig: IAppConfig = {
     MatDividerModule,
     MatGridListModule,
     MatSelectModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    FlexLayoutModule,
+    MatBadgeModule
   ]
 })
 export class MaterialSharedModule { }

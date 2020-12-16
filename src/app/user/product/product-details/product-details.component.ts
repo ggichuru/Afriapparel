@@ -6,6 +6,7 @@ import { UserProductService } from '../service/user-product.service';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { CartService } from '../../cart/service/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -27,6 +28,7 @@ export class ProductDetailsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,19 @@ export class ProductDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((data) => {
       this.productService.getProductById(data.get('id')).subscribe((result) => {
         this.productDetails = result.data;
+      });
+    });
+  }
+
+  // tslint:disable: typedef
+  addToCart(productDetails: any) {
+    const productData = {
+      productId: productDetails,
+      quantity: this.quantity.value
+    };
+    this.cartService.addProductToCart(productData).subscribe((result) => {
+      this.snackBar.open('Product Added to Cart!', 'Product', {
+        duration: 1000
       });
     });
   }

@@ -7,7 +7,8 @@ import { ProductComponent } from './product.component';
 
 const routes: Routes = [
   {path: 'product', component: ProductComponent, canActivate: [AuthGuard, UserGuard]},
-  {path: 'product/:id', component: ProductDetailsComponent,  canActivate: [AuthGuard, UserGuard]}
+  {path: 'product/:id', component: ProductDetailsComponent,  canActivate: [AuthGuard, UserGuard]},
+  {path: '', redirectTo: 'product', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -73,7 +73,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="2" rowspan="1" style="background: none;" class="btns">
-      <button mat-raised-button color="primary" >Add To Cart</button>
+      <button mat-raised-button color="primary"  (click)="addToCart(productDetails._id)">Add To Cart</button>
       <button mat-raised-button color="primary" >Add To WishList</button>
     </mat-grid-tile>
   </mat-grid-list>

@@ -38,12 +38,15 @@
     </mat-grid-tile>
   </mat-grid-list>
 </ng-template>
+
+
 <ng-template  #notHandest>
+
   <mat-grid-list cols="4" rowHeight="200px" gutterSize="15" >
-    <mat-grid-tile *ngFor="let product of productList | slice:0:20 ; let i=index">
+    <mat-grid-tile *ngFor="let product of productList | slice:0:20 ; let i=index" >
       <img [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName">
       <span></span>
-      <mat-grid-tile-footer style="background-color: white;">
+      <mat-card-content>
         <div class="box-text">
           <span style="color: #080707; font-weight: bold;">
             {{product.productName}}
@@ -52,8 +55,8 @@
             {{product.price | currency : 'KSH '}}
           </span>
         </div>
-<br><br>
-      </mat-grid-tile-footer>
+      </mat-card-content>
+
     </mat-grid-tile>
   </mat-grid-list>
 

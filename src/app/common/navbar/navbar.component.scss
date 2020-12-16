@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  min-height: 100vh;
+  min-height: 100%;
   background: white;
 }
 
@@ -15,53 +15,31 @@ body {
   background: maroon;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
+.ir {
+  a:hover {
+    color: maroon;
+    background-color: white;
+  }
 }
-
-.mat-toolbar.mat-toolbar-row {
-  color: black;
-}
-
-.mat-toolbar {
-  background: maroon;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.content {
-  background: white;
-  height: 100vh;
-  padding: 20px;
-}
-
-.titleWidth {
-  padding-left: 20px;
-  font-size: x-large;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.secondbar {
-  box-shadow: 2px 2px 2px 2px rgb(218, 211, 211);
-}
-.secondbar a {
-  color: black;
+a {
+  margin: 2px;
   text-decoration: none;
-  float: center;
-}
-.menus button {
-  color: black;
-}
-.menus button:hover {
-  background-color: maroon;
-  color: white;
 }
 
-.top1 button {
-  top: 0;
-  float: right;
-  position: relative;
-  left: 200%;
+a:hover {
+  color: maroon;
+  background-color: white;
+}
+
+.active-link {
+  background-color: black;
+}
+
+.mat-icon {
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.left-spacer {
+  flex: 1 1 auto;
 }

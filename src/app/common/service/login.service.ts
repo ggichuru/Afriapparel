@@ -7,6 +7,7 @@ import { IAppConfig } from '../../material-shared/IAppConfig';
 import { IResponse } from './loginResponse';
 import { RUser } from './register';
 import { BehaviorSubject } from 'rxjs';
+import { EncDecService } from '@ecom/core';
 
 
 
@@ -20,7 +21,7 @@ export class LoginService {
 
   constructor(
     private http: HttpClient,
-   // private encService: EncDecService,
+    private encService: EncDecService,
     @Inject(APP_CONFIG) private appConfig: IAppConfig
   ) {
     console.log(appConfig.apiEndpoint);
@@ -42,7 +43,7 @@ export class LoginService {
 
   userRole(role?: string) {
     if (sessionStorage.getItem('role')) {
-      const currentRole = (sessionStorage.getItem('role'), '');
+      const currentRole = this.encService.decrypt(sessionStorage.getItem('role'), '');
       this.role.next(currentRole);
     } else {
       this.role.next(role);

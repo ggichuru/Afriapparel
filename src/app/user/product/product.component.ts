@@ -26,12 +26,12 @@ export class ProductComponent implements OnInit {
     .subscribe((data) => {
       if (data != null) {
         this.category = data;
-        this.productService.getAllProducts().subscribe((result) => {
+        this.productService.getProductsByCategory(data).subscribe((result) => {
           this.products = result.data;
           this.productCount = result.count;
         });
       } else {
-        this.category = 'All';
+        this.category = 'All Products';
         this.productService.getAllProducts().subscribe((result) => {
           this.products = result.data;
           this.productCount = result.data.length;

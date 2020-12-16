@@ -6,6 +6,7 @@ import { IResponse } from '../service/loginResponse';
 import { LoginService } from '../service/login.service';
 import { Router } from '@angular/router';
 import { CategoryService } from '../service/category.service';
+import { CartService } from 'src/app/user/cart/service/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,7 +30,7 @@ export class NavbarComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private loginService: LoginService,
     @Optional() private categoryService: CategoryService,
-    // private cartService: CartService,
+    private cartService: CartService,
     private router: Router
   ) { }
  // tslint:disable: typedef
@@ -37,6 +38,9 @@ export class NavbarComponent implements OnInit {
     this.loginStatus$ = this.loginService.isLoggedIn();
     this.role$ = this.loginService.userRole();
     this.getCategories();
+    if (this.cartService) {
+      this.cart$ = this.cartService.getUserCart();
+    }
   }
 
 

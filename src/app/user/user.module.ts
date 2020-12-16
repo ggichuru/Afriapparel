@@ -10,15 +10,24 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileEditComponent } from './profile/profile-edit/profile-edit.component';
 import { MaterialSharedModule } from '../material-shared/material-shared.module';
 import { ProductModule } from './product/product.module';
+import { CartComponent } from './cart/cart.component';
+import { CartModule } from './cart/cart.module';
+import { OrderModule } from './order/order.module';
+import { PaymentComponent } from './payment/payment.component';
+import { NgxPayPalModule } from 'ngx-paypal-v4';
+
 
 
 @NgModule({
-  declarations: [UserDashboardComponent, ProfileComponent, ProfileEditComponent],
+  declarations: [UserDashboardComponent, ProfileComponent, ProfileEditComponent, CartComponent, PaymentComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
     MaterialSharedModule,
-    ProductModule
+    ProductModule,
+    CartModule,
+    OrderModule,
+    NgxPayPalModule,
   ],
 
 })
