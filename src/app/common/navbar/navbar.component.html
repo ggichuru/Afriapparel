@@ -14,7 +14,9 @@
 
       <span class="left-spacer"></span>
 
-      <a mat-button *ngIf="!(loginStatus$ | async)" routerLink="/login" routerLinkActive="active-link">Login</a>
+      <a mat-button *ngIf="!(loginStatus$ | async)" routerLink="/login" >
+      <mat-icon>person</mat-icon>  Login
+      </a>
 
 
       <div *ngIf="loginStatus$ | async">
