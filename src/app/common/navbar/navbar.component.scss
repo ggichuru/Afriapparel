@@ -5,6 +5,12 @@ body {
   background: white;
 }
 
+.content {
+  background: white;
+  height: 100vh;
+  padding: 20px;
+}
+
 .sidenav-container {
   height: 100vh;
 }
@@ -15,8 +21,11 @@ body {
   background: maroon;
 }
 
-.ir {
-  a:hover {
+.mat-sidenav{
+   .mat-nav-list .mat-list-item a{
+    color: white;
+  }
+  .mat-nav-list .mat-list-item a:hover{
     color: maroon;
     background-color: white;
   }

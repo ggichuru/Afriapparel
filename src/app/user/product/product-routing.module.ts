@@ -6,8 +6,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductComponent } from './product.component';
 
 const routes: Routes = [
-  {path: 'product', component: ProductComponent, canActivate: [AuthGuard, UserGuard]},
-  {path: 'product/:id', component: ProductDetailsComponent,  canActivate: [AuthGuard, UserGuard]},
+  {path: 'product', component: ProductComponent},
+  {path: 'product/:id', component: ProductDetailsComponent},
   {path: '', redirectTo: 'product', pathMatch: 'full'}
 ];
 

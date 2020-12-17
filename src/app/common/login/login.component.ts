@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     switch (role) {
       case 'user':
         // redirect to UserDashboard
-        this.router.navigate(['/user/dashboard']);
+        this.router.navigate(['/user/product']);
         break;
       case 'admin':
         // redirect to AdminDashboard

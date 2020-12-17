@@ -1,14 +1,14 @@
-<div style="padding: 50px;">
-  <div class="register-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div >
+  <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>User Registration</mat-card-title>
+        <mat-card-title>Register</mat-card-title>
       </mat-card-header>
 
-      <form class="reg-form" [formGroup]="form" (ngSubmit)="register()">
+      <form class="example-form" [formGroup]="form" (ngSubmit)="register()">
         <mat-card-content>
-          <mat-form-field class="full-width">
+          <mat-form-field class="example-full-width">
             <input matInput
             type="text"
             formControlName="firstName"
@@ -16,12 +16,12 @@
             placeholder="Firstname"
             [ngClass]="{'is-invalid' : submitted && f.firstName.errors }"
             required>
-            <!-- <div class="invalid-feedback" *ngIf="f.firstName.errors">
+            <div class="invalid-feedback" *ngIf="f.firstName.errors">
                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
-            </div> -->
+            </div>
           </mat-form-field>
 
-          <mat-form-field class="full-width">
+          <mat-form-field class="example-full-width">
             <input matInput
             type="text"
             formControlName="lastName"
@@ -29,12 +29,12 @@
             placeholder="Lastname"
             [ngClass]="{'is-invalid' : submitted && f.lastName.errors }"
             required>
-            <!-- <div class="invalid-feedback" *ngIf="f.firstName.errors">
+            <div class="invalid-feedback" *ngIf="f.firstName.errors">
                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
-            </div> -->
+            </div>
           </mat-form-field>
 
-          <mat-form-field class="full-width">
+          <mat-form-field class="example-full-width">
             <input matInput
             type="text"
             formControlName="email"
@@ -42,12 +42,12 @@
             placeholder="Email"
             [ngClass]="{'is-invalid' : submitted && f.email.errors }"
             required>
-            <!-- <div class="invalid-feedback" *ngIf="f.firstName.errors">
+            <div class="invalid-feedback" *ngIf="f.firstName.errors">
                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
-            </div> -->
+            </div>
           </mat-form-field>
 
-          <mat-form-field class="full-width">
+          <mat-form-field class="example-full-width">
             <input matInput
             type="text"
             formControlName="mobile"
@@ -55,12 +55,12 @@
             placeholder="Phonenumber"
             [ngClass]="{'is-invalid' : submitted && f.mobile.errors }"
             required>
-            <!-- <div class="invalid-feedback" *ngIf="f.firstName.errors">
+            <div class="invalid-feedback" *ngIf="f.firstName.errors">
                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
-            </div> -->
+            </div>
           </mat-form-field>
 
-          <mat-form-field class="full-width">
+          <mat-form-field class="example-full-width">
             <input matInput
             type="text"
             formControlName="role"
@@ -68,12 +68,12 @@
             placeholder="Role (admin/user)"
             [ngClass]="{'is-invalid' : submitted && f.firstName.errors }"
             required>
-            <!-- <div class="invalid-feedback" *ngIf="f.firstName.errors">
+            <div class="invalid-feedback" *ngIf="f.firstName.errors">
                 <div *ngIf="f.firstName.errors.required">First Name is required</div>
-            </div> -->
+            </div>
           </mat-form-field>
 
-          <mat-form-field class="full-width">
+          <mat-form-field class="example-full-width">
             <input matInput
             placeholder="Password"
             [type]="hide ? 'password' : 'text'"
@@ -82,6 +82,16 @@
             required>
             <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </mat-form-field>
+          <!-- <mat-form-field class="example-full-width">
+            <input matInput
+            ngValidateEqual="password"
+            placeholder="Confirm Password"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="confirmpassword"
+            [ngClass]="{'is-invalid' : submitted && f.password.errors }"
+            required>
+            <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </mat-form-field> -->
         </mat-card-content>
         <div class="form-group">
           <button [disabled]="loading" class="btn btn-primary" type="submit">

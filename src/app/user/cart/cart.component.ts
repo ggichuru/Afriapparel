@@ -31,10 +31,14 @@ export class CartComponent implements OnInit {
       });
   }
 
-  // tslint:disable-next-line: typedef
+  // tslint:disable: typedef
   checkOut() {
     this.cartService.addProductToCheckOut(this.userCart);
     this.router.navigate(['/user/payment']);
+  }
+
+  delete(id) {
+    
   }
 
 }

@@ -8,6 +8,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { MaterialSharedModule } from '../material-shared/material-shared.module';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register/register.component';
+import { ValidateEqualModule } from 'ng-validate-equal';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     CommonModule,
     MaterialSharedModule,
-    CommonRoutingModule
+    CommonRoutingModule,
+    ValidateEqualModule
   ],
   exports: [
     CommonModule,

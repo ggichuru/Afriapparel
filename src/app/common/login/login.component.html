@@ -1,5 +1,5 @@
-<div style="padding: 50px;">
-  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div style="padding: 20px;">
+  <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card class="box">
       <mat-card-header>
@@ -11,7 +11,7 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Email"  name="email" [(ngModel)]="user.email" required>
           </mat-form-field>
-
+          <br>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Password" [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="user.password" required>
             <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility'}}</mat-icon>

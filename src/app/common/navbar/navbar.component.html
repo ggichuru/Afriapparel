@@ -43,11 +43,27 @@
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav style="background: maroon; color: white;">
+    <mat-sidenav #sidenav style="background: maroon; color: white;" class="nav">
       <mat-nav-list >
-        <div *ngIf="loginStatus$" >
+        <div  *ngIf="!(loginStatus$ | async)" >
+          <a mat-button routerLink="/product" routerLinkActive (click)="sidenav.toggle()">
+           All Products</a>
+
+
+            <mat-divider></mat-divider>
+            <h4 class="text-center"> CATEGORIES </h4>
+            <mat-list-item *ngFor="let category of categories" #category>
+              <a mat-button (click)="getProduct(category.categoryName)" (click)="sidenav.toggle()"
+              style="color: white ; ">{{category.categoryName}}</a>
+            </mat-list-item>
+            <mat-list-item *ngIf="(role$ | async) === 'user'">
+              <a mat-button style="color: white ;" routerLink='/user/order'>Orders</a>
+            </mat-list-item>
+          </div>
+        <div *ngIf="(role$ | async) === 'user'" >
         <a mat-button routerLink="/user/product" routerLinkActive (click)="sidenav.toggle()">
          All Products</a>
+
 
           <mat-divider></mat-divider>
           <h4 class="text-center"> CATEGORIES </h4>
@@ -55,14 +71,29 @@
             <a mat-button (click)="getProduct(category.categoryName)" (click)="sidenav.toggle()"
             style="color: white ; ">{{category.categoryName}}</a>
           </mat-list-item>
-          <mat-list-item>
+          <mat-list-item *ngIf="(role$ | async) === 'user'">
             <a mat-button style="color: white ;" routerLink='/user/order'>Orders</a>
           </mat-list-item>
         </div>
+        <div *ngIf="(role$ | async) === 'admin'" >
+
+          <mat-list-item>
+            <a mat-button routerLink="/admin/dashboard" style="color: white;" routerLinkActive (click)="sidenav.toggle()"> Dashboard </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a mat-button routerLink="/admin/product" style="color: white;" routerLinkActive (click)="sidenav.toggle()"> Add product </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a mat-button routerLink="/admin/category" style="color: white;" routerLinkActive (click)="sidenav.toggle()"> Add Category </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a mat-button routerLink="/admin/order" style="color: white;" routerLinkActive (click)="sidenav.toggle()"> View Orders </a>
+          </mat-list-item>
+          </div>
       </mat-nav-list>
 
     </mat-sidenav>
-    <mat-sidenav-content style="background-color: white;">
+    <mat-sidenav-content style="background-color: white;" class="content">
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
