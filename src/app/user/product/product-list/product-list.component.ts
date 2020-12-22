@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
   @Input() categoryName: string;
   @Input() productCount: number;
 
-  @ViewChild('productTable') productTable: MatTable<any>;
+  @Input() searchText: string;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(

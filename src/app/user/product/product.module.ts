@@ -7,18 +7,23 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductComponent } from './product.component';
 import { MaterialSharedModule } from 'src/app/material-shared/material-shared.module';
 
+import { FilterPipe } from './filter.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 @NgModule({
   declarations: [
     ProductComponent,
     ProductListComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FilterPipe
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
-    MaterialSharedModule
+    MaterialSharedModule,
+    Ng2SearchPipeModule
   ],
 
 })

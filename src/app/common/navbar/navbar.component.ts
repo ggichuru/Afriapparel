@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, Input, OnInit, Optional } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   role$: Observable<string>;
   cart$: Observable<IResponse>;
   categories: any;
+  @Input() searchText: string;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

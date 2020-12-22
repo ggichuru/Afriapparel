@@ -55,7 +55,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1" rowspan="1" style="background: white;">
       <mat-grid-tile-header> Quantity </mat-grid-tile-header>
-      <div style="background: none;">
+      <div style="background: white;">
         <mat-select class="matSelect" required [formControl]="quantity" placeholder="Quantity" name="qty">
           <mat-option *ngFor="let qty of [1,2,3,4,5,6,7,8,9,10]" [value]="qty"> {{qty}} </mat-option>
         </mat-select>
