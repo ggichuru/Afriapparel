@@ -1,63 +1,59 @@
-<h1>Category: {{categoryName}}</h1>
+<h1 class="text-center" style="font-weight: bold; color: maroon; font-size: 30px;">CATEGORY: {{categoryName}}</h1>
 <div>
   Product {{productList?.length}} of {{productCount}}
 </div>
 <br>
 <mat-divider></mat-divider>
 <br>
-<!-- <mat-card *ngFor="let product of productList; let i=index" class="prodCard">
-  <mat-card-header>
-    <mat-card-title class="text-center">
-      {{product.productName}}
-    </mat-card-title>
-  </mat-card-header>
-  <img mat-card-image [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName">
-  <div class="text-center">
-    {{product.price | currency : 'KSH '}}
-  </div>
-</mat-card>
- -->
 
-
-<ng-template [ngIf]="isHandset$ | async" [ngIfElse]="notHandest" >
-  <mat-grid-list cols="2" rowHeight="30vh" rowWidth="20vw" gutterSize="10" >
-    <mat-grid-tile *ngFor="let product of productList | slice:0:6 ; let i=index">
-      <img [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName">
+<ng-template [ngIf]="isHandset$ | async" [ngIfElse]="notHandest" class="list2">
+  <mat-grid-list cols="1" rowHeight="1:1" gutterSize="10px" class="tile2">
+    <mat-grid-tile *ngFor="let product of productList ; let i=index">
+      <img [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName" class="prod-image">
       <span></span>
-      <mat-grid-tile-footer style="background-color: white;">
+      <mat-grid-tile-footer style="background-color: white; text-align: center;">
         <div class="box-text">
           <span style="color: #080707; font-weight: bold;">
-            {{product.productName}}
-          </span> <br>
+            {{product.productName }}
+          </span>
           <span style="color: #080707; font-weight: bold;">
-            {{product.price | currency : 'KSH '}}
+            : {{product.price | currency : 'KSH '}}
           </span>
         </div>
 <br><br>
       </mat-grid-tile-footer>
     </mat-grid-tile>
+
   </mat-grid-list>
+
 </ng-template>
 
 
 <ng-template  #notHandest>
 
-  <mat-grid-list cols="4" rowHeight="200px" gutterSize="15" >
-    <mat-grid-tile *ngFor="let product of productList | slice:0:20 ; let i=index" >
-      <img [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName">
-      <span></span>
-      <mat-card-content>
-        <div class="box-text">
-          <span style="color: #080707; font-weight: bold;">
-            {{product.productName}}
-          </span> <br>
-          <span style="color: #080707; font-weight: bold;">
-            {{product.price | currency : 'KSH '}}
-          </span>
-        </div>
-      </mat-card-content>
+  <mat-grid-list cols="4" rowHeight="1:1" gutterSize="50px" class="list1">
+    <mat-grid-tile *ngFor="let product of productList ; let i=index" class="tile1" >
 
+      <mat-card-content>
+        <img [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName">
+      </mat-card-content>
+     <br>
+      <mat-grid-tile-footer style="background-color: white;">
+        <div class="box-text text-center">
+          <p style="color: black; font-weight: bold; font-size: 14px;">
+            <span  >
+              {{product.productName}}
+            </span>
+             :
+             <span>
+              {{product.price | currency : 'KSH '}}
+             </span>
+          </p>
+
+        </div>
+      </mat-grid-tile-footer>
     </mat-grid-tile>
+    <br>
   </mat-grid-list>
 
 </ng-template>

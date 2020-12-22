@@ -1,12 +1,15 @@
-* {
-  background: white;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-img {
-  width: 50%;
-  height: 50%;
+.list1 img {
+  width: 350px;
+  height: 350px;
   cursor: pointer;
+}
+
+.prod-image{
+  width: 200px;
+  height: 220px;
+  cursor: pointer;
+  border-radius: 120px;
+
 }
 
 .mat-card-content{
@@ -16,5 +19,39 @@ img {
 .box-text{
   background-color: white;
   color: black;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.list1 {
+  background: white;
+
+}
+
+.list1  :hover {
+  background-color: white;
+}
+
+.list2 {
+  background: white;
+
+}
+
+.list2  :hover {
+  background-color: white;
+}
+
+.tile1 {
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.tile2 {
+  padding: 10px;
+}
+
+mat-grid-tile {
+  background: white;
 }

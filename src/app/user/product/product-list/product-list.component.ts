@@ -1,10 +1,13 @@
-import { Input } from '@angular/core';
+import { Input, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { UserProductService } from '../service/user-product.service';
 import { CategoryService } from 'src/app/common/service/category.service';
+import { MatTableDataSource } from '@angular/material/table/table-data-source';
+import { Product } from '../product';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-product-list',
@@ -16,6 +19,8 @@ export class ProductListComponent implements OnInit {
   @Input() productList: any;
   @Input() categoryName: string;
   @Input() productCount: number;
+
+  @ViewChild('productTable') productTable: MatTable<any>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(

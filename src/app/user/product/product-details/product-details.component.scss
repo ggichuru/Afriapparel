@@ -13,6 +13,10 @@ body {
   color: black;
 }
 
+.mat-grid-tile {
+  background: white;
+}
+
 .mat-grid-tile .mat-grid-tile-header {
   background: maroon;
 }
@@ -22,6 +26,6 @@ button {
   margin: 5px;
 }
 
-:hover{
-  background: none;
+.mat-grid-tile :hover{
+  background: white;
 }

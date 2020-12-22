@@ -24,7 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatBadgeModule} from '@angular/material/badge';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 const AppConfig: IAppConfig = {
@@ -56,6 +56,7 @@ const AppConfig: IAppConfig = {
     MatButtonToggleModule,
     FlexLayoutModule,
     MatBadgeModule,
+    MatPaginatorModule
   ],
   providers: [
     {provide: APP_CONFIG, useValue: AppConfig},
@@ -82,7 +83,8 @@ const AppConfig: IAppConfig = {
     MatTableModule,
     MatButtonToggleModule,
     FlexLayoutModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialSharedModule { }
