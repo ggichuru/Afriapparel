@@ -18,4 +18,8 @@ export class WishlistService {
   getWishList() {
     return this.http.get<IResponse>(this.appConfig.apiEndpoint + '/wishlist');
   }
+
+  addProductToWishList(product: string) {
+    return this.http.post<IResponse>(this.appConfig.apiEndpoint + '/wishlist', {productId: product});
+  }
 }

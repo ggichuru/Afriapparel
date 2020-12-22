@@ -15,6 +15,7 @@ import { CartModule } from './cart/cart.module';
 import { OrderModule } from './order/order.module';
 import { PaymentComponent } from './payment/payment.component';
 import { NgxPayPalModule } from 'ngx-paypal-v4';
+import { WishlistModule } from './wishlist/wishlist.module';
 
 
 
@@ -28,6 +29,7 @@ import { NgxPayPalModule } from 'ngx-paypal-v4';
     CartModule,
     OrderModule,
     NgxPayPalModule,
+    WishlistModule
   ],
 
 })

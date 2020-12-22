@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CartService } from '../../cart/service/cart.service';
+import { WishlistService } from '../../wishlist/service/wishlist.service';
 
 @Component({
   selector: 'app-product-details',
@@ -28,7 +29,8 @@ export class ProductDetailsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private route: ActivatedRoute,
     private breakpointObserver: BreakpointObserver,
-    private cartService: CartService
+    private cartService: CartService,
+    private wishListService: WishlistService
   ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,15 @@ export class ProductDetailsComponent implements OnInit {
         duration: 1000
       });
     });
+  }
+
+  addToWishList(productId: any) {
+    this.wishListService.addProductToWishList(productId)
+      .subscribe((result) => {
+        this.snackBar.open('Product Added to WishList!', 'Product', {
+          duration: 1000
+        });
+      });
   }
 
 }

@@ -37,8 +37,10 @@ export class CartComponent implements OnInit {
     this.router.navigate(['/user/payment']);
   }
 
-  delete(id) {
-    
+  delete(val) {
+    console.log(val);
+    this.userCart.splice(this.userCart.indexOf(val), 1);
+    this.cartTable.renderRows();
   }
 
 }
