@@ -41,6 +41,6 @@ export class WishlistComponent implements OnInit {
 
   addToCart() {
     this.cartService.addProductToCart(this.wishList);
-    
+    //
   }
 }
