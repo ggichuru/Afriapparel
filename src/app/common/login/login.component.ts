@@ -3,7 +3,8 @@ import { LoginService } from '../service/login.service';
 import { IUser } from '../service/user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { EncDecService } from '@ecom/core';
+import { EncDecService } from '@ggichuru/ecom-core';
+
 
 
 @Component({

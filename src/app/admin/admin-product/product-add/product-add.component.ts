@@ -42,5 +42,6 @@ export class ProductAddComponent implements OnInit {
     };
 
     this.addProduct.emit(productData);
+    this.productForm.reset();
   }
 }

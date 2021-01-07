@@ -5,6 +5,12 @@ import { AlertService } from '../service/alert.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+interface Role {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-register',
@@ -16,6 +22,9 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
+  // roles: Role[] = [
+  //   {value: 'user', viewValue: 'User'}
+  // ];
 
   user: RUser = {
     firstName: '',
@@ -31,7 +40,8 @@ export class RegisterComponent implements OnInit {
     private alertService: AlertService,
     private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -53,14 +63,17 @@ export class RegisterComponent implements OnInit {
 
 
 
-  // tslint:disable-next-line: typedef
+  // tslint:disable: typedef
+
   register() {
     this.submitted = true;
 
     this.alertService.clear();
 
     if (this.form.invalid) {
-      return;
+      return this.snackBar.open('Invalid entries, Check your form! ', 'Registration Error', {
+        duration: 1000
+      });
     }
 
     this.loading = true;
@@ -79,4 +92,6 @@ export class RegisterComponent implements OnInit {
           }
       });
   }
+
+
 }

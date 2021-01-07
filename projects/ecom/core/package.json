@@ -1,5 +1,5 @@
 {
-  "name": "@ecom/core",
+  "name": "@ggichuru/ecom-core",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^10.1.5",

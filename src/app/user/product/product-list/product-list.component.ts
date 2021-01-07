@@ -22,6 +22,8 @@ export class ProductListComponent implements OnInit {
 
   @Input() searchText: string;
 
+  number = Math.floor(Math.random() * 10) + 1;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
     map(result => result.matches),
