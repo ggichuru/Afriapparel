@@ -34,7 +34,7 @@
             class="formControl"
             placeholder="Email"
             required>
-            
+
 
           </mat-form-field>
 
@@ -49,18 +49,22 @@
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput
+            <!-- <input matInput
             type="text"
             formControlName="role"
             class="formControl"
             placeholder="Role (user)"
-            required>
-            <!-- <mat-label>Role</mat-label>
+            required> -->
+
+
+            <mat-label>Role</mat-label>
             <mat-select formControlName="role" class="formControl" required>
               <mat-option *ngFor="let role of roles" [value]="role.value">
-                {{role.value}}
+                {{role.viewValue}}
               </mat-option>
-            </mat-select> -->
+            </mat-select>
+
+
             <!-- <mat-label>Role</mat-label>
             <select matNativeControl required formControlName="role" class="formControl">
               <option value="user">user</option>

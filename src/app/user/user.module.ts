@@ -14,7 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { CartModule } from './cart/cart.module';
 import { OrderModule } from './order/order.module';
 import { PaymentComponent } from './payment/payment.component';
-import { NgxPayPalModule } from 'ngx-paypal-v4';
+import { NgxPayPalModule } from 'ngx-paypal';
 import { WishlistModule } from './wishlist/wishlist.module';
 
 

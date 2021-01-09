@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, EventEmitter, OnInit, Output, Input, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -16,7 +17,8 @@ export class ProductAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit(): void {

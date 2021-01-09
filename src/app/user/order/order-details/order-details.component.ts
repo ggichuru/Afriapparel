@@ -10,6 +10,7 @@ import { OrderService } from '../service/order.service';
 export class OrderDetailsComponent implements OnInit {
   orderDetails: any;
 
+
   constructor(
     private orderService: OrderService,
     private route: ActivatedRoute

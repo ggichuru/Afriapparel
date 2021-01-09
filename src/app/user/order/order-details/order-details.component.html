@@ -1,5 +1,9 @@
-<h1>
-  Order Id: {{orderDetails?._id}}
-</h1>
+<div class="text-center">
+  <h4>
+    Order Id: {{orderDetails?._id}}
+  </h4>
+  <h4>
+    Order Status: {{orderDetails?.status}}
+  </h4>
+</div>
 
-{{orderDetails | json}}

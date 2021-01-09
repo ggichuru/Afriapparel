@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  displayedColumns = ['_id', 'category', 'productName', 'price', 'outOfStock'];
+  displayedColumns = ['_id', 'category', 'productName', 'price', 'outOfStock', 'imageUrl'];
   @Input() productList: any;
 
   constructor() { }

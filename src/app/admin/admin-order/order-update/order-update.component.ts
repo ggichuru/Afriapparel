@@ -14,7 +14,7 @@ export class OrderUpdateComponent implements OnInit {
   updateStatusForm: FormGroup;
   orderDetails: any;
   displayedColumns: string[] = ['productName', 'qty', 'price', 'total'];
-  orderStatus = ['Shipped', 'Delivered'];
+  orderStatus = ['Shipped', 'Delivered', 'Canceled'];
 
   constructor(
     private orderService: AdminOrderService,
@@ -32,7 +32,7 @@ export class OrderUpdateComponent implements OnInit {
       })
     });
 
-    this.route.params.subscribe((data) => {
+    this.route.paramMap.subscribe((data) => {
       const orderId = data.get('id');
       this.orderService.getOrderDetails(orderId).subscribe((result) => {
         this.orderDetails = result.data;

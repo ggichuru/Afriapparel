@@ -33,4 +33,16 @@ export class CartService {
   getProductForCheckOut() {
     return this.products.asObservable();
   }
+
+  // clearCart(product: any) {
+  //   return this.http.post<IResponse>(this.appConfig.apiEndpoint + '/cart/updateCart', product);
+  // }
+  clearCart() {
+    return this.http.delete<IResponse>(this.appConfig.apiEndpoint + '/cart');
+  }
+
+  // tslint:disable-next-line: variable-name
+  deleteOne() {
+    return this.http.delete<IResponse>(this.appConfig.apiEndpoint + '/cart/:_id');
+  }
 }

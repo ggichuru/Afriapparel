@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
         break;
       case 'admin':
         // redirect to AdminDashboard
-        this.router.navigate(['/admin/dashboard']);
+        this.router.navigate(['/admin/order']);
         break;
       default:
         this.snackBar.open('User doesn\'t belong to valid role!', 'Login', {

@@ -30,4 +30,7 @@ export class AdminProductService {
   getProductList() {
     return this.http.get<IResponse>(this.appConfig.apiEndpoint + '/product');
   }
+  updateProduct(outOfStock: boolean, description: string, price: number) {
+    return this.http.put<IResponse>(this.appConfig.apiEndpoint + '/product', {outOfStock, description, price});
+  }
 }

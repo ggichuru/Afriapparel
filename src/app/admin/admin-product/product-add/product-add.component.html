@@ -1,6 +1,6 @@
-<h1 class="text-center">Add and View Products</h1>
+<h1 class="text-center" style="color: maroon;">ADD PRODUCT</h1>
 <mat-divider></mat-divider>
-<form [formGroup]="productForm" (submit)='submitProduct()' novalidate>
+<form [formGroup]="productForm" (submit)='submitProduct()' novalidate style="padding: 20px;">
   <mat-form-field>
     <mat-select formControlName='category' placeholder='Category'>
       <mat-option *ngFor="let category of categories" [value]='category.categoryName'>
@@ -21,7 +21,7 @@
   <mat-form-field>
     <input matInput type="number" placeholder="Price" formControlName='price' name="price">
   </mat-form-field>
-  <div>
+  <div >
     <button [disabled]='productForm.invalid' mat-raised-button type="submit" color='primary'>Add Product</button>
   </div>
 </form>

@@ -25,7 +25,7 @@
 <ng-template [ngIf]="isHandset$ | async" [ngIfElse]="notHandest" class="list2">
   <mat-grid-list cols="1" rowHeight="1:1" gutterSize="10px" class="tile2">
     <mat-grid-tile *ngFor="let product of productList  | filter: searchText; let i = index ">
-      <div *ngIf="(i+ 1) % number == 0">
+      <div>
         <img [routerLink]='[product._id]' [src]="product.imageUrl" [alt]="product.productName" class="prod-image">
         <span></span>
         <mat-grid-tile-footer style="background-color: white; text-align: center;">

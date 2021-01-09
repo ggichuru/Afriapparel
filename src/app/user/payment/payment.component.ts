@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Input, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PayPalConfig, PayPalEnvironment, PayPalIntegrationType } from 'ngx-paypal-v4';
+import { PayPalConfig, PayPalEnvironment, PayPalIntegrationType } from 'ngx-paypal';
+
 import { CartService } from '../cart/service/cart.service';
 import { OrderService } from '../order/service/order.service';
 
@@ -12,11 +13,16 @@ import { OrderService } from '../order/service/order.service';
 })
 export class PaymentComponent implements OnInit {
 
-  public payPalConfig?: PayPalConfig;
+  payPalConfig?: PayPalConfig;
   products = [];
   total: number;
   shippingAddress: FormGroup;
   displayedColumns: string[] = ['imageUrl', 'productName', 'quantity', 'price', 'total'];
+
+  heel: any = '<ngx-paypal [config]="payPalConfig" > </ngx-paypal>';
+
+  @ViewChild('paypal') ppal: ElementRef;
+  // @Input() config: any;
 
   constructor(
     private cartService: CartService,
@@ -24,10 +30,9 @@ export class PaymentComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
   ) { }
-
+// tslint:disable: typedef
   ngOnInit(): void {
-    this.initConfig();
-
+    // this.initConfig();
     this.shippingAddress = this.fb.group({
       addressLine1: ['', Validators.required],
       addressLine2: ['', Validators.required],
@@ -35,15 +40,23 @@ export class PaymentComponent implements OnInit {
       pin: ['', Validators.required],
     });
 
+
     this.cartService.getProductForCheckOut().subscribe((productList) => {
       this.products = productList;
       this.total = productList.map(p => p.quantity * p.price).reduce((total: any, price: any) =>
         total + price, 0
       );
     });
+
   }
-// tslint:disable:typedef
-  private initConfig(): void  {
+
+  getPal() {
+    this.ppal.nativeElement.InnerHTML = '<ngx-paypal [config]="payPalConfig"></ngx-paypal>';
+  }
+
+  // tslint:disable:typedef
+   private initConfig(): void  {
+
     this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Sandbox, {
       commit: true,
       client: {
@@ -56,7 +69,7 @@ export class PaymentComponent implements OnInit {
         console.log('OnPaymentComplete');
         console.log(paymentInfo);
         console.log(actions);
-        this.placeOrder(paymentInfo);
+     //   this.placeOrder(paymentInfo);
       },
       onCancel: (data, actions) => {
         console.log('OnCancel');
@@ -67,22 +80,28 @@ export class PaymentComponent implements OnInit {
       },
       transactions: [{
         amount: {
-          currency: 'KES',
+          currency: 'USD',
           total: this.total
         }
       }]
     });
   }
 
-  placeOrder(paymentData: any) {
+  pay() {
+    this.initConfig();
+    this.placeOrder();
+  }
+
+
+  placeOrder() {
     const order = {
       products: this.products,
       shippingAddress: this.shippingAddress.getRawValue(),
-      paymentInfo: paymentData,
+      // paymentInfo: paymentData,
       total: this.total
     };
     this.orderService.placeOrder(order).subscribe((result) => {
-      this.router.navigate(['/user/order', result.data]);
+      this.router.navigate(['/user/order']);
     });
   }
 

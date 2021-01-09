@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CartService } from './service/cart.service';
@@ -16,31 +17,41 @@ export class CartComponent implements OnInit {
 
   constructor(
     private cartService: CartService,
-    private router: Router
+    private router: Router,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit(): void {
-    this.cartService.getUserCart()
-      .subscribe(result => {
-        result.data.forEach((product: any) => {
-          product.UserCart[0].quantity = product.quantity;
-          this.userCart.push(product.UserCart[0]);
-        });
-        this.cartTable.dataSource = this.userCart;
-        this.cartTable.renderRows();
-      });
+    this.getCart();
   }
 
+
   // tslint:disable: typedef
+  getCart() {
+    this.cartService.getUserCart()
+    .subscribe(result => {
+      result.data.forEach((product: any) => {
+        product.UserCart[0].quantity = product.quantity;
+        this.userCart.push(product.UserCart[0]);
+      });
+      this.cartTable.dataSource = this.userCart;
+      this.cartTable.renderRows();
+    });
+  }
+
   checkOut() {
     this.cartService.addProductToCheckOut(this.userCart);
     this.router.navigate(['/user/payment']);
   }
 
-  delete(val) {
-    console.log(val);
-    this.userCart.splice(this.userCart.indexOf(val), 1);
-    this.cartTable.renderRows();
+  delete() {
+    this.cartService.deleteOne().subscribe(result => {
+      console.log(result);
+      this.cartService.getUserCart();
+      this.document.defaultView.location.reload();
+    }, err => {
+      console.log(err);
+    });
   }
 
 }

@@ -1,4 +1,4 @@
 export const environment = {
-  apiEndPoint: '',
+  apiEndPoint: 'https://ggapiecom.herokuapp.com',
   production: true
 };

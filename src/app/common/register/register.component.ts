@@ -22,9 +22,9 @@ export class RegisterComponent implements OnInit {
   form: FormGroup;
   loading = false;
   submitted = false;
-  // roles: Role[] = [
-  //   {value: 'user', viewValue: 'User'}
-  // ];
+  roles: Role[] = [
+    {value: 'user', viewValue: 'User'}
+  ];
 
   user: RUser = {
     firstName: '',
@@ -49,7 +49,6 @@ export class RegisterComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      confirmpassword: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
       mobile: ['', Validators.required],
       role: ['', Validators.required]
@@ -66,17 +65,11 @@ export class RegisterComponent implements OnInit {
   // tslint:disable: typedef
 
   register() {
-    this.submitted = true;
-
-    this.alertService.clear();
-
     if (this.form.invalid) {
       return this.snackBar.open('Invalid entries, Check your form! ', 'Registration Error', {
         duration: 1000
       });
     }
-
-    this.loading = true;
     this.loginService.register(this.form.value)
         .pipe(first())
         .subscribe({
@@ -88,7 +81,6 @@ export class RegisterComponent implements OnInit {
           },
           error: error => {
             this.alertService.error(error);
-            this.loading = false;
           }
       });
   }
