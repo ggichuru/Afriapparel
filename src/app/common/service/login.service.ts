@@ -7,7 +7,7 @@ import { IAppConfig } from '../../material-shared/IAppConfig';
 import { IResponse } from './loginResponse';
 import { RUser } from './register';
 import { BehaviorSubject } from 'rxjs';
-import { EncDecService } from '@ecom/core';
+import { EncDecService } from '@ggichuru/ecom-core';
 
 
 
