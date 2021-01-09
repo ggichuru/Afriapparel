@@ -13,6 +13,8 @@ import { AdminModule } from './admin/admin.module';
 import { ProductModule } from './user/product/product.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorHandlerService } from './common/error-handler/error-handler.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -32,7 +34,8 @@ import { ErrorHandlerService } from './common/error-handler/error-handler.servic
     UserModule,
     AdminModule,
     ProductModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [
